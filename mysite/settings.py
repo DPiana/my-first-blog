@@ -25,7 +25,7 @@ SECRET_KEY = '38vmd+@!bz(=y@j)g9pt0cd@+88@y)9h@803ragmr#l$s+qkd!'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['dianapiana.pythonanywhere.com']
+ALLOWED_HOSTS = ['dianapiana.pythonanywhere.com','127.0.0.1']
 
 
 # Application definition
