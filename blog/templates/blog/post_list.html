@@ -1,24 +1,13 @@
-<html>
-    <head>
-        <title>Django Girls blog</title>
-    </head>
-    <body>
-        <div>
-            <h1><a href="">Django Girls Blog</a></h1>
-        </div>
+{% extends 'blog/base.html' %}
 
-        {% for post in posts %}
-            <div>
-                <p>published: {{post.published_date}} </p>
-                <h1><a href =""> {{post.title}} </a></h1>
-                <p> {{ post.text|linebreaksbr }} </p>
+{% block content %}
+    {% for post in posts %}
+        <div class="post">
+            <div class="date">
+                {{ post.published_date }}
             </div>
-        {% endfor %}
-
-    </body>
-</html>
-
-<!-- to jest komentarz w htmu, jesli chcesz miec tajne komentarze pisz je w django  -->
-<!-- w podwojnych nawiasach klamrowych mamy zmienna -->
-<!-- {{ post.text|linebreaksbr }} tutaj przed | jest zmienna, a po | funkcja ktora wykonujemy na tej zmiennej -->
-<!-- |linebreaksbr przepuszcza wpisy przez filtr, który zamienia znaczniki nowej linii na akapity. -->
+            <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
+            <p>{{ post.text|linebreaksbr }}</p>
+        </div>
+    {% endfor %}
+{% endblock %}
